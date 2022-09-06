@@ -114,3 +114,5 @@ const returnPlayableNumbers = (valCoordinate,sudokuSet) => {
 
     return availableVals;
 };
+
+export default Game;
