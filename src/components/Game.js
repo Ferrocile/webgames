@@ -32,14 +32,25 @@ const generateEmptySudoku = () => {
   return sudokuSet;
 }
 
+//return a random array consisting of 1-9
+const randomizeArray= () => {
+	let retArr=[1,2,3,4,5,6,7,8,9];
+  return retArr.sort(() => Math.random() -.5);
+}
+
 /*
   Populate the grids diagonally from top left to bottom right
-  x|_|_
-  _|x|_
-   | |x
+  |x|_|_|
+  |_|x|_|
+  | | |x|
 */
 const populateDiagonalGrids = sudokuSet => {
+  for(let i=0;i<7;i+=3){
+    //get randomized array of numbers 1-9
+    let arr = randomizeArray();
 
+    //insert into the grid starting at i,i coordinate
+  }
 
 
   return sudokuSet;
@@ -175,11 +186,5 @@ const returnPlayableNumbers = (valCoordinate,sudokuSet) => {
 
     return availableVals;
 };
-
-//return a random array consisting of 1-9
-const randomizeArray= _ => {
-	let retArr=[1,2,3,4,5,6,7,8,9];
-  return retArr.sort(() => Math.random() -.5);
-}
 
 export default Game;
