@@ -13,6 +13,67 @@ const sudokuSet =
 [0,0,5,2,0,6,3,0,0]
 ];
 
+/*
+  Sudoku Generation Functions
+*/
+const generateEmptySudoku = () => {
+  let sudokuSet = 
+    [
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0]
+    ];
+  return sudokuSet;
+}
+
+/*
+  Populate the grids diagonally from top left to bottom right
+  x|_|_
+  _|x|_
+   | |x
+*/
+const populateDiagonalGrids = sudokuSet => {
+
+
+
+  return sudokuSet;
+}
+
+//recursively fill the rest of the sudoku grid
+const fillSudoku = sudokuSet => { 
+  
+  return sudokuSet;
+}
+
+//remove x numbers from the grid randomly
+const removeNumbersFromGrid = (difficulty,sudokuSet) => {
+
+  return sudokuSet;
+}
+
+//generate easy, medium, or hard sudoku
+const generateSudoku = (difficulty) => {
+  let sudoku = generateEmptySudoku();
+
+  populateDiagonalGrids(sudoku);
+  
+  fillSudoku(sudoku);
+
+  removeNumbersFromGrid(difficulty,sudoku);
+
+  return sudoku;
+}
+
+/*
+  End Sudoku Generation Functions
+*/
+
 //given an array check for duplicates in the array
 //true = duplicates
 //false = no duplicates

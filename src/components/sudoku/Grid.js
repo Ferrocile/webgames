@@ -18,7 +18,7 @@ const Grid = () => {
         <section className="game">
           <table className="game__board">
             <tbody>
-              populateGrid();
+              {populateGrid()}
               
             </tbody>
           </table>
