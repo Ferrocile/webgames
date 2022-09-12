@@ -115,4 +115,10 @@ const returnPlayableNumbers = (valCoordinate,sudokuSet) => {
     return availableVals;
 };
 
+//return a random array consisting of 1-9
+const randomizeArray= _ => {
+	let retArr=[1,2,3,4,5,6,7,8,9];
+  return retArr.sort(() => Math.random() -.5);
+}
+
 export default Game;
