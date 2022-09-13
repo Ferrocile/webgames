@@ -38,6 +38,18 @@ const randomizeArray= () => {
   return retArr.sort(() => Math.random() -.5);
 }
 
+//populate 3x3 grid starting at position xy
+const populateGridAt = (xy,arr,sudokuSet) => {
+	let x=xy[0];
+  let y=xy[1];
+  let tmpArr=arr;
+	for(let i=x;i<x+3;i++){
+  	for(let j=y;j<y+3;j++){
+    	sudokuSet[i][j] = tmpArr.pop();
+    }
+  }
+}
+
 /*
   Populate the grids diagonally from top left to bottom right
   |x|_|_|
@@ -45,14 +57,12 @@ const randomizeArray= () => {
   | | |x|
 */
 const populateDiagonalGrids = sudokuSet => {
-  for(let i=0;i<7;i+=3){
+  for(let i=0;i<7;i=i+3){
     //get randomized array of numbers 1-9
     let arr = randomizeArray();
-
-    //insert into the grid starting at i,i coordinate
+    
+    populateGridAt([i,i],arr, sudokuSet);
   }
-
-
   return sudokuSet;
 }
 
