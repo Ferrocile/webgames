@@ -73,7 +73,7 @@ const fillSudoku = sudokuSet => {
 }
 
 //remove x numbers from the grid randomly
-const removeNumbersFromGrid = (difficulty,sudokuSet) => {
+const removeNumbersFromGrid = (difficulty=1,sudokuSet) => {
 
   return sudokuSet;
 }
