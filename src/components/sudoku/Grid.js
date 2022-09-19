@@ -1,6 +1,6 @@
 import React from "react";
 import "./Grid.css";
-import Game from "../Game";
+import Game from "../SudokuGame";
 
 const sudokuSet = Game.sudukuSet;
 
