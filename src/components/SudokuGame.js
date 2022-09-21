@@ -1,3 +1,4 @@
+const _ = require('lodash');
 //sample working dataset
 //to be replaced by sudoku generator later
 const sampleSet = [
@@ -153,17 +154,22 @@ const fillSudoku = (sudokuSet) => {
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
       console.log("sudoku at i,j: " + sudokuSet[i][j]);
+
       if (sudokuSet[i][j] === 0) {
         console.log("trying to set value at: " + i.toString() + "," + j.toString());
+
         //get array of playable numbers based on row,column, and 3x3 grid
         let validNums = returnPlayableNumbers([i, j], sudokuSet);
         for (let k = 0; k < validNums.length; k++) {
+          let guess = validNums[k];
           //make sure guess number is valid at this location before setting it
-          if (checkValid([i, j], validNums[k], sudokuSet)) {
+          if (checkValid([i, j], guess, sudokuSet)) {
             console.log("valid numbers: " + validNums + " at position: " + i + "," + j);
-            console.log("current number: " + validNums[k]);
-            sudokuSet[i][j] = validNums[k];
+            console.log("current number: " + guess);
+
+            sudokuSet[i][j] = guess;
             console.log(sudokuSet);
+
             if (fillSudoku(sudokuSet)) {
               return true;
             }
@@ -183,7 +189,7 @@ const fillSudoku = (sudokuSet) => {
 const checkValid = (coordinateArr, numGuess, sudokuSet) => {
   let x = coordinateArr[0];
   let y = coordinateArr[1];
-  let tmpSet = sudokuSet;
+  let tmpSet = _.cloneDeep(sudokuSet);
   tmpSet[x][y] = numGuess;
   if(validateNumbers(tmpSet[x]) &&
     validateNumbers(returnCol(y, tmpSet)) &&
