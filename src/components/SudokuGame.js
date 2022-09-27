@@ -153,10 +153,8 @@ const solveSudoku = (sudokuSet) => {
 const fillSudoku = (sudokuSet) => {
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
-      console.log("sudoku at i,j: " + sudokuSet[i][j]);
 
       if (sudokuSet[i][j] === 0) {
-        console.log("trying to set value at: " + i.toString() + "," + j.toString());
 
         //get array of playable numbers based on row,column, and 3x3 grid
         let validNums = returnPlayableNumbers([i, j], sudokuSet);
@@ -164,11 +162,8 @@ const fillSudoku = (sudokuSet) => {
           let guess = validNums[k];
           //make sure guess number is valid at this location before setting it
           if (checkValid([i, j], guess, sudokuSet)) {
-            console.log("valid numbers: " + validNums + " at position: " + i + "," + j);
-            console.log("current number: " + guess);
 
             sudokuSet[i][j] = guess;
-            console.log(sudokuSet);
 
             if (fillSudoku(sudokuSet)) {
               return true;
@@ -176,12 +171,10 @@ const fillSudoku = (sudokuSet) => {
             sudokuSet[i][j] = 0;
           }
         }
-        console.log("returning false now");
         return false; //no solution exists
       }
     }
   }
-  console.log("returning true");
   return true;
 };
 
